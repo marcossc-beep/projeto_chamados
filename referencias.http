@@ -1,0 +1,26 @@
+###
+
+GET http://localhost:3000/users
+
+###
+
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "name": "Pica pau",
+    "email": "marcos@gmail.com",
+    "password": "123",
+    "profile": "ADM"
+}
+
+###
+
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "marcos@gmail.com",
+    "password": "123"
+}
+

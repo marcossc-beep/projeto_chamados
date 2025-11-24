@@ -8,7 +8,7 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-    "name": "Pica pau",
+    "name": "Marcos Lindo",
     "email": "marcos@gmail.com",
     "password": "123",
     "profile": "ADM"
@@ -24,3 +24,18 @@ Content-Type: application/json
     "password": "123"
 }
 
+###
+
+GET http://localhost:3000/issues
+
+###
+POST http://localhost:3000/issues
+Content-Type: application/json
+
+{
+    "title": "Deu bug",
+    "description": "não consigo fazer login",
+    "responsible": "Marcos",
+    "status": "open",
+    "observations": ""
+}

@@ -69,7 +69,35 @@ server.post('/login', async (req, res) => {
     
 })
 
+server.get('/issues', async (req, res) => {
+    try {
+        const response = await sql.query('SELECT * FROM issues')
+        return res.json({resuts: response.rows, ok: true})
+    } catch (error) {
+        res.status(500).json({message: error, ok: false})
+    }
+})
 
+
+server.post('/issues', async (req, res) => {
+    const title = req.body.title;
+    const description = req.body.description;
+    const responsible = req.body.responsible;
+    const status = req.body.status;
+    const observations = req.body.observations;
+
+    try {
+        const response = await sql.query(
+            'INSERT INTO issues (title, description, responsible, status, observations) '
+            +'VALUES ($1, $2, $3, $4, $5)',
+            [title, description, responsible, status, observations]
+        )
+        res.status(201).json({message: 'Chamado Criado com sucesso!', ok: true})
+    } catch (error) {
+        res.status(500).json({message: error, ok: false})
+    }
+    
+})
 
 server.listen(3000, () => {
     console.log('Ta rodando!: http://localhost:3000/')
